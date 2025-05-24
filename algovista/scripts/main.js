@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Contact form submission
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm.reset();
         });
     }
-
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 });
