@@ -75,25 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (statsSection) {
         observer.observe(statsSection);
     }
-
-    // Contact form submission
-    const contactForm = document.getElementById('.contact-form');
+    // Form submission handling
+    const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the data to a server
-            console.log({ name, email, service, message });
-            
-            // Show success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.loading-spinner');
+
+            // Show loading state
+            btnText.style.display = 'none';
+            spinner.style.display = 'inline-block';
+            submitBtn.disabled = true;
         });
     }
     // Set current year in footer
